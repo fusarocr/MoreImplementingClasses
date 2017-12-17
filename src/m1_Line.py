@@ -457,7 +457,8 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
-
+        return math.sqrt((self.end.y - self.start.y)**2 + (self.end.x -
+                                                      self.start.x)**2)
     def get_number_of_clones(self):
         """
         What comes in:
