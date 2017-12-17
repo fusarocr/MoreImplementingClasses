@@ -218,7 +218,8 @@ class Line(object):
         """
         self.start = start.clone()
         self.end = end.clone()
-
+        self.dx = self.end.x - self.start.x
+        self.dy = self.end.y - self.start.y
         # --------------------------------------------------------------
         # DONE: 3.
         #   a. READ the above specification, including the Example.
@@ -421,8 +422,7 @@ class Line(object):
         if self.end.x - self.start.x == 0:
             return  math.inf
         else:
-            return (self.end.y - self.start.y) / (self.end.x -
-                                                      self.start.x)
+            return (self.dy) / (self.dx)
 
 
     def length(self):
@@ -457,8 +457,7 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
-        return math.sqrt((self.end.y - self.start.y)**2 + (self.end.x -
-                                                      self.start.x)**2)
+        return math.sqrt((self.dy)**2 + (self.dx)**2)
     def get_number_of_clones(self):
         """
         What comes in:
