@@ -220,6 +220,7 @@ class Line(object):
         self.end = end.clone()
         self.dx = self.end.x - self.start.x
         self.dy = self.end.y - self.start.y
+        self.clones = 0
         # --------------------------------------------------------------
         # DONE: 3.
         #   a. READ the above specification, including the Example.
@@ -340,7 +341,7 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
-
+        self.clones = self.clones + 1
         return Line(self.start, self.end)
 
 
@@ -449,7 +450,7 @@ class Line(object):
           :rtype: float
         """
         # --------------------------------------------------------------
-        # TODO: 7.
+        # DONE: 7.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -458,6 +459,8 @@ class Line(object):
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
         return math.sqrt((self.dy)**2 + (self.dx)**2)
+
+
     def get_number_of_clones(self):
         """
         What comes in:
@@ -489,7 +492,7 @@ class Line(object):
           :rtype: int:
         """
         # --------------------------------------------------------------
-        # TODO: 8.
+        # DONE: 8.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -497,6 +500,8 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
+
+        return self.clones
 
     def line_plus(self, other_line):
         """
