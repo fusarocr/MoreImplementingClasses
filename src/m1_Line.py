@@ -218,6 +218,8 @@ class Line(object):
         """
         self.start = start.clone()
         self.end = end.clone()
+        self.start0 = self.start
+        self.end0 = self.end
         self.dx = self.end.x - self.start.x
         self.dy = self.end.y - self.start.y
         self.clones = 0
@@ -421,9 +423,10 @@ class Line(object):
         # --------------------------------------------------------------
 
         if self.end.x - self.start.x == 0:
-            return  math.inf
+            return math.inf
         else:
-            return (self.dy) / (self.dx)
+            return (self.end.y - self.start.y) / (self.end.x - self.start.x)
+
 
 
     def length(self):
@@ -646,7 +649,7 @@ class Line(object):
           :rtype: bool
         """
         # --------------------------------------------------------------
-        # TODO: 12.
+        # DONE: 12.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -680,6 +683,15 @@ class Line(object):
         # and (usually) adequate to distinguish numbers that really
         # are different from each other.
         ################################################################
+
+        if round(self.slope(), 10) == round(line2.slope(), 10):
+            return True
+        if round(self.slope(), 10) != round(line2.slope(), 10):
+            return False
+
+
+
+
 
     def reset(self):
         """
@@ -720,6 +732,8 @@ class Line(object):
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
 
+        self.start = self.start0
+        self.end = self.end0
 
 ########################################################################
 # The TEST functions for the  Line  class begin here.
