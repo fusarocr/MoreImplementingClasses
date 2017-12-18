@@ -218,8 +218,8 @@ class Line(object):
         """
         self.start = start.clone()
         self.end = end.clone()
-        self.start0 = self.start
-        self.end0 = self.end
+        self.start0 = self.start.clone()
+        self.end0 = self.end.clone()
         self.dx = self.end.x - self.start.x
         self.dy = self.end.y - self.start.y
         self.clones = 0
@@ -723,7 +723,7 @@ class Line(object):
             print(line2)  # Should print: Line[(0, 1), (10, 20)]
         """
         # --------------------------------------------------------------
-        # TODO: 13.
+        # DONE: 13.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
