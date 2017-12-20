@@ -15,7 +15,7 @@ def main():
     # --------------------------------------------------------------
 
     run_test_simple_t()
-    # run_test_set_colors()
+    #run_test_set_colors()
     # run_test_move_by()
     # run_test_clone()
 
@@ -140,10 +140,10 @@ class CapitalT(object):
         #   Implement this method
         #   Note: you will need to also implement attach_to before testing
         # --------------------------------------------------------------
-        self.h_rect = rg.Rectangle(rg.Point(intersection_center.x - width,
-                                            intersection_center.y -
+        self.h_rect = rg.Rectangle(rg.Point(intersection_center.x - width/2,
+                                            intersection_center.y +
                                             letter_thickness/2), rg.Point(
-            intersection_center.x + width, intersection_center.y +
+            intersection_center.x + width/2, intersection_center.y -
                                            letter_thickness/2))
         self.v_rect = rg.Rectangle(rg.Point(intersection_center.x -
                                             letter_thickness/2,
@@ -210,8 +210,11 @@ class CapitalT(object):
         #     run_test method in main. Compare the graphics window to
         #     set_colors.pdf.
         # --------------------------------------------------------------
-        self.v_rect
-        
+        self.v_rect.fill_color = fill_color
+        self.v_rect.outline_color = outline_color
+        self.h_rect.fill_color = fill_color
+        self.h_rect.outline_color = outline_color
+
 
 
     def move_by(self, dx, dy):
