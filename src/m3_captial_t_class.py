@@ -14,10 +14,10 @@ def main():
     #   Uncomment only 1 test at a time as you develop your code.
     # --------------------------------------------------------------
 
-    run_test_simple_t()
-    run_test_set_colors()
-    run_test_move_by()
-    # run_test_clone()
+    #run_test_simple_t()
+    #run_test_set_colors()
+    #run_test_move_by()
+    run_test_clone()
 
 
 def run_test_simple_t():
@@ -151,7 +151,10 @@ class CapitalT(object):
                                             letter_thickness/2), rg.Point(
             intersection_center.x + letter_thickness/2,
             intersection_center.y + height - letter_thickness/2))
-
+        self.intersection_center = intersection_center
+        self.width = width
+        self.height = height
+        self.letter_thickness = letter_thickness
 
 
     def attach_to(self, window):
@@ -271,12 +274,21 @@ class CapitalT(object):
           :rtype: CapitalT
         """
         # --------------------------------------------------------------
-        # TODO: 7.
+        # DONE: 7.
         #   READ the above specification, including the Example.
         #   Implement and test this method by uncommenting the appropriate
         #     run_test method in main. Compare the graphics window to
         #     clone.pdf.
         # --------------------------------------------------------------
+
+        capital_t = CapitalT(self.intersection_center, self.width, self.width,
+                        self.letter_thickness)
+        capital_t.h_rect.fill_color = self.h_rect.fill_color
+        capital_t.h_rect.outline_color = self.h_rect.outline_color
+        capital_t.v_rect.fill_color = self.v_rect.fill_color
+        capital_t.v_rect.outline_color = self.v_rect.outline_color
+
+        return capital_t
 
 
 # ----------------------------------------------------------------------
