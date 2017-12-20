@@ -247,6 +247,9 @@ class CapitalT(object):
         #     move_by.pdf. Note: the pdf shows the different locations
         #     that the T moves through, but there is only 1 T at any moment.
         # --------------------------------------------------------------
+        rg.Rectangle.move_by(self.v_rect, dx, dy)
+        rg.Rectangle.move_by(self.h_rect, dx, dy)
+
 
     def clone(self):
         """
