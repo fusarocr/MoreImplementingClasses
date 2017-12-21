@@ -87,6 +87,7 @@ def run_test_clone():
         t.move_by(100 * k, 20 * k)
         t.attach_to(window)
     first_t.move_by(0, 200)
+    first_t = first_t.clone()
     first_t.attach_to(window)
     window.render()
     window.close_on_mouse_click()
@@ -151,7 +152,7 @@ class CapitalT(object):
                                             letter_thickness/2), rg.Point(
             intersection_center.x + letter_thickness/2,
             intersection_center.y + height - letter_thickness/2))
-        self.intersection_center = intersection_center
+        self.intersection_center = intersection_center.clone()
         self.width = width
         self.height = height
         self.letter_thickness = letter_thickness
@@ -250,9 +251,12 @@ class CapitalT(object):
         #     move_by.pdf. Note: the pdf shows the different locations
         #     that the T moves through, but there is only 1 T at any moment.
         # --------------------------------------------------------------
-        rg.Rectangle.move_by(self.v_rect, dx, dy)
-        rg.Rectangle.move_by(self.h_rect, dx, dy)
-
+        self.v_rect.move_by(dx, dy)
+        self.h_rect.move_by(dx, dy)
+        self.intersection_center.move_by(dx, dy)
+        print(self.h_rect)
+        print(self.v_rect)
+        print(self.intersection_center)
 
     def clone(self):
         """
@@ -281,7 +285,7 @@ class CapitalT(object):
         #     clone.pdf.
         # --------------------------------------------------------------
 
-        capital_t = CapitalT(self.intersection_center, self.width, self.width,
+        capital_t = CapitalT(self.intersection_center, self.width, self.height,
                         self.letter_thickness)
         capital_t.h_rect.fill_color = self.h_rect.fill_color
         capital_t.h_rect.outline_color = self.h_rect.outline_color
